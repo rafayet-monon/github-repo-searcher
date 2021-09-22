@@ -51,12 +51,11 @@ jobs:
           bundle config set with 'development'
           bundle install --jobs 4 --retry 3
 
-      - name: Setup Database
+      - name: Run Test
         env:
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: postgres
-        run: bin/rails db:create
-
-      - name: Run Rspec
-        run: bundle exec rspec
+        run: |
+          bin/rails db:create
+          bundle exec rspec
