@@ -56,7 +56,7 @@ jobs:
           RAILS_ENV: test
           PGHOST: localhost
           PGUSER: postgres
-        run: bin/rails db:create db:schema:load
+        run: bin/rails db:create
 
       - name: Run Rspec
         run: bundle exec rspec
