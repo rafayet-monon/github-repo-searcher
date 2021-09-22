@@ -45,6 +45,8 @@ group :development do
   gem 'rubocop-rails', require: false # A RuboCop extension focused on enforcing Rails best practices and coding conventions.
   gem 'rubocop-rspec', require: false # Code style checking for RSpec files
   gem 'rubocop-performance', require: false # An extension of RuboCop focused on code performance checks.
+  gem 'brakeman', require: false # A static analysis security vulnerability scanner for Ruby on Rails applications
+  gem 'scss_lint' # SCSS lint
 end
 
 group :test do
