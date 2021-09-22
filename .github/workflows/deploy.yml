@@ -5,7 +5,6 @@ on:
     branches:
       - master
       - development
-      - task-2/setup-ci-cd
 
 jobs:
   deploy:
@@ -19,6 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.5.0
+        with:
+          access_token: ${{ github.token }}
+
       - name: Deploy Production
         if: github.ref == 'refs/heads/master'
         run: |
@@ -26,7 +30,7 @@ jobs:
           git push -f production origin/master:refs/heads/master
 
       - name: Deploy Staging
-        if: github.ref == 'refs/heads/task-2/setup-ci-cd'
+        if: github.ref == 'development'
         run: |
           git remote add staging https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_STAGING_APP.git
-          git push -f staging origin/task-2/setup-ci-cd:refs/heads/master
+          git push -f staging origin/development:refs/heads/master
