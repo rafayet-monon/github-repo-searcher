@@ -1,1 +1,8 @@
-@import 'vendor/bootstrap/bootstrap';
+@import 'variables';
+// Vendors
+@import 'vendor/bootstrap/bootstrap.scss';
+// Layouts
+@import 'layouts/*';
+
+// Components
+@import 'components/*';
