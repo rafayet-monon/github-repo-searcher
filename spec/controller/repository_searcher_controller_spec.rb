@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe RepositorySearcherController, type: :controller do
-
   describe 'GET#index' do
     it 'renders the index view' do
       get :index
