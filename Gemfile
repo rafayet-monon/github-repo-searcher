@@ -55,6 +55,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rails-controller-testing' # Gem that allow to use assigns as well ass assert_template
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
