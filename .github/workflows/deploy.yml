@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - master
+      - main
       - development
 
 jobs:
@@ -24,10 +24,10 @@ jobs:
           access_token: ${{ github.token }}
 
       - name: Deploy Production
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           git remote add production https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_PRODUCTION_APP.git
-          git push -f production origin/master:refs/heads/master
+          git push -f production origin/main:refs/heads/master
 
       - name: Deploy Staging
         if: github.ref == 'refs/heads/development'

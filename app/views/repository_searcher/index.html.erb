@@ -1,9 +1,9 @@
 <div class="container">
-  <%= form_tag repository_searcher_search_path, class: 'form-search' do |f|  %>
+  <%= form_tag repository_searcher_search_path, class: 'form-search', method: :get do  %>
     <div class="row mb-5">
       <div class="col-10">
         <%= text_field_tag :search, nil, class: 'form-control', name: 'search',
-                           placeholder: 'Search Repository' %>
+                           placeholder: 'Search Repository', value: params[:search] %>
       </div>
 
       <div class="col-2">
