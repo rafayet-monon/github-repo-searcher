@@ -1,0 +1,16 @@
+.search-result {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+}

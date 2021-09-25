@@ -48,3 +48,9 @@ RSpec/ContextWording:
   Prefixes:
     - when
     - given
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+RSpec/ExampleLength:
+  Max: 10

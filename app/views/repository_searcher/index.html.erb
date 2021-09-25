@@ -1,0 +1,20 @@
+<div class="container">
+  <%= form_tag repository_searcher_search_path, class: 'form-search', method: :get do  %>
+    <div class="row mb-5">
+      <div class="col-10">
+        <%= text_field_tag :search, nil, class: 'form-control', name: 'search',
+                           placeholder: 'Search Repository', value: params[:search] %>
+      </div>
+
+      <div class="col-2">
+        <%= submit_tag 'Search', class: 'btn btn-primary form-search__submit' %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if current_page?(repository_searcher_search_path) %>
+    <%= render partial: 'search_result', locals: { result: result,
+                                                  pagination: pagination,
+                                                  error: error } %>
+  <% end%>
+</div>
