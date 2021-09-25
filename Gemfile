@@ -39,7 +39,7 @@ group :development do
   gem 'rubocop-rspec', require: false # Code style checking for RSpec files
   gem 'rubocop-performance', require: false # An extension of RuboCop focused on code performance checks.
   gem 'brakeman', require: false # A static analysis security vulnerability scanner for Ruby on Rails applications
-  gem 'scss_lint' # SCSS lint
+  gem 'scss_lint', git: 'https://github.com/sds/scss-lint', branch: 'master' # SCSS lint
 end
 
 group :test do

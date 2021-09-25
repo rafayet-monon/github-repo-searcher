@@ -51,3 +51,6 @@ RSpec/ContextWording:
 
 RSpec/MultipleExpectations:
   Max: 5
+
+RSpec/ExampleLength:
+  Max: 10

@@ -4,8 +4,7 @@ class RepositorySearcherController < ApplicationController
   def index; end
 
   def search
-    query = params[:search]
-    search_data = ::RepositorySearcherService.perform(query, params[:page])
+    search_data = ::RepositorySearcherService.perform(params[:search], params[:page])
 
     render 'index', locals: { result: search_data.result,
                               pagination: search_data.pagination,

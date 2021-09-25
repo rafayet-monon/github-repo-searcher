@@ -1,0 +1,28 @@
+<% if error.present? %>
+  <div class="alert alert-danger" role="alert"><%= error %></div>
+<% else %>
+  <div class="search-result">
+    <div class="search-result__items">
+      <div class="row">
+        <% result.each do |item| %>
+          <div class="col-6 search-result__item">
+            <div class="card search-result__card" style="">
+              <div class="card-body">
+                <h5 class="card-title"><%= item[:name] %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= item[:full_name] %></h6>
+                <p class="card-text"><%= truncate(item[:description], length: 100) %></p>
+                <%= link_to 'Repository', item[:html_url], class: 'btn btn-info', target: '_blank' %>
+                <%= link_to 'Owner', item[:owner][:html_url], class: 'btn btn-info', target: '_blank' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="search-result__pagination">
+      <%== pagy_bootstrap_nav(pagination) %>
+    </div>
+  </div>
+<% end %>
+
