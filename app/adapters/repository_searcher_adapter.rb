@@ -21,14 +21,14 @@ class RepositorySearcherAdapter
     @page = page
   end
 
-  def self.search(query_string, page = 1)
+  def self.search(query_string, page)
     new(query_string, page).search
   end
 
   def search
     response = make_request
-    @response_body = JSON.parse response.body
-    raise RequestNotSuccessfulError, @response_body['message'] unless response.is_a?(Net::HTTPSuccess)
+    @response_body = JSON.parse(response.body, symbolize_names: true)
+    raise RequestNotSuccessfulError, @response_body[:message] unless response.is_a?(Net::HTTPSuccess)
 
     self
   end

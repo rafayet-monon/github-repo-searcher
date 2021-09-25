@@ -5,7 +5,7 @@ class RepositorySearcherService
 
   attr_reader :result, :total_count, :pagination, :error
 
-  def initialize(query, page)
+  def initialize(query, page = 1)
     @query = query
     @page = page
   end
@@ -17,8 +17,8 @@ class RepositorySearcherService
   def perform
     begin
       response_body = RepositorySearcherAdapter.search(@query, @page).response_body
-      @total_count = response_body['total_count']
-      @pagination, @result = paginate_result(response_body['items'])
+      @total_count = response_body[:total_count]
+      @pagination, @result = paginate_result(response_body[:items])
     rescue StandardError => e
       @error = e.message
     end

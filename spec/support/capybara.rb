@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require 'selenium-webdriver'
-require 'capybara'
-require 'capybara/rspec'
-
 # Give CI some extra time
 CAPYBARA_TIMEOUT = ENV['CI'] ? 60 : 30
 
