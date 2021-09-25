@@ -3,6 +3,8 @@
 class RepositorySearcherService
   include Pagy::Backend
 
+  MAX_SEARCH_RESULTS = 1000
+
   attr_reader :result, :total_count, :pagination, :error
 
   def initialize(query, page)
@@ -30,6 +32,10 @@ class RepositorySearcherService
   private
 
   def paginate_result(array)
-    pagy_array(array, { count: @total_count, page: @page })
+    pagy_array(array, { count: max_visible_result, page: @page })
+  end
+
+  def max_visible_result
+    @total_count > MAX_SEARCH_RESULTS ? MAX_SEARCH_RESULTS : @total_count
   end
 end

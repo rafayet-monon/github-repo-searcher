@@ -2,8 +2,8 @@
 
 Simple application that can search to github for repositories.
 
-> Warning: This app searches with unauthenticated requests. It can perform 10 requests per minute before you see a 
-> error.
+> Warning: This app searches with unauthenticated requests. It can perform 10 requests per minute and ans shows first 
+> 1000 search results.
 
 ## Site link
 #### Production: https://search-repo-production.herokuapp.com/
