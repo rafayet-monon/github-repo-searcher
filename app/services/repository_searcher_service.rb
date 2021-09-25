@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RepositorySearcherService
+  include Pagy::Backend
+
   attr_reader :result, :total_count, :pagination, :error
 
   def initialize(query, page)
@@ -16,8 +18,7 @@ class RepositorySearcherService
     begin
       response_body = RepositorySearcherAdapter.search(@query, @page).response_body
       @total_count = response_body['total_count']
-      @result = response_body['items']
-      @pagination = paginate_result
+      @pagination, @result = paginate_result(response_body['items'])
     rescue StandardError => e
       @error = e.message
     end
@@ -27,7 +28,7 @@ class RepositorySearcherService
 
   private
 
-  def paginate_result
-    Kaminari.paginate_array(@result, total_count: @total_count).page(@page)
+  def paginate_result(array)
+    pagy_array(array, { count: @total_count, page: @page })
   end
 end
