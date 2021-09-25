@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/sds/scss-lint
+  revision: 6198c0c647b4b7863aa6dcfbb84daa10af73a7d8
+  branch: master
+  specs:
+    scss_lint (0.59.0)
+      sass (~> 3.5, >= 3.5.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -211,8 +219,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scss_lint (0.59.0)
-      sass (~> 3.5, >= 3.5.5)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -276,7 +282,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sass-rails (>= 6)
-  scss_lint
+  scss_lint!
   selenium-webdriver
   spring
   tzinfo-data
